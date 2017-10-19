@@ -23,7 +23,7 @@ jobs:
           command: |
             java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
           background: true
-      - restore_cache:
+#      - restore_cache:
 #          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
       - run:
           name: Install Python deps in a venv
@@ -31,10 +31,10 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
 #            pip install -r requirements/dev.txt
-      - save_cache:
+#      - save_cache:
 #          key: deps1-{{ .Branch }}-{{ checksum "requirements/dev.txt" }}
-          paths:
-            - "venv"
+#          paths:
+#            - "venv"
       - run:
           command: |
             . venv/bin/activate
